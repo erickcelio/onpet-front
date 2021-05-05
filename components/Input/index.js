@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = React.forwardRef(({ label, name, error, ...props }, ref) => {
+const Input = React.forwardRef(({ label, name, error, inputClasses, ...props }, ref) => {
   console.log({ error });
 
   return (
@@ -13,7 +13,7 @@ const Input = React.forwardRef(({ label, name, error, ...props }, ref) => {
       <input
         ref={ref}
         name={name}
-        className={`rounded-2xl h-12 ${error ? "border-red-500" : ""}`}
+        className={`rounded-2xl h-12 ${error ? "border-red-500" : ""} ${inputClasses}`}
         type="text"
         {...props}
       />
