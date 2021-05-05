@@ -1,18 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-
-const schema = yup.object().shape({});
 
 function ThirdStep({ onSubmitWithSuccess }) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log({ thirdStepData: data });
@@ -30,24 +20,25 @@ function ThirdStep({ onSubmitWithSuccess }) {
           className="mr-2"
           type="radio"
           id="hasDeliveryServiceTrue"
-          name="hasDeliveryService"
           value="true"
           checked
+          {...register("hasDeliveryService")}
         />
-        <label for="hasDeliveryServiceTrue">Sim</label>
+        <label htmlFor="hasDeliveryServiceTrue">Sim</label>
         <input
           className="ml-4 mr-2"
           id="hasDeliveryServiceFalse"
           type="radio"
-          name="hasDeliveryService"
           value="false"
+          {...register("hasDeliveryService")}
         />
-        <label for="hasDeliveryServiceFalse">Não</label>
+        <label htmlFor="hasDeliveryServiceFalse">Não</label>
       </div>
 
       <div className="flex flex-col">
         <label>Descrição</label>
         <textarea
+          {...register("description")}
           placeholder="Conte-nos um pouco mais sobre seu pet shop (essa descrição é
           disponibilizada para usuários do aplicativo)."
           className="rounded-xl mt-2 min-h-[180px]"
