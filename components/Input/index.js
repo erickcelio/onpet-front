@@ -2,8 +2,6 @@ import React from "react";
 
 const Input = React.forwardRef(
   ({ label, name, error, inputClasses, ...props }, ref) => {
-    console.log({ error });
-
     return (
       <div className="flex flex-col">
         {label && (
