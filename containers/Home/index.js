@@ -42,7 +42,7 @@ function HomeContainer() {
         <ul className="flex mt-10">
           {items.map((item) => (
             <li
-              onClick={onItemClick}
+              onClick={() => onItemClick(item.href)}
               as={Link}
               href={item.href}
               key={item.text}
