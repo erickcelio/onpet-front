@@ -1,13 +1,22 @@
 .stepsContainer {
-  display: flex;
+  @apply relative flex items-center mt-6 justify-between;
+
+  width: 800px;
+
+  &::after {
+    content: "";
+    height: 2px;
+
+    @apply w-full absolute bg-white z-0;
+  }
 }
 
 .step {
-  @apply border-2 bg-transparent rounded-full;
+  @apply z-10 border-2 bg-blue-700 rounded-full text-xl font-bold flex items-center justify-center;
   width: 60px;
   height: 60px;
 }
 
 .stepActive {
-  @apply bg-white;
+  @apply bg-white text-blue-700;
 }
