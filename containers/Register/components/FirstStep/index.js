@@ -10,7 +10,7 @@ const schema = yup.object().shape({
   fantasyName: yup.string().required("Este é um campo obrigatório"),
   cep: yup.string().required("Este é um campo obrigatório"),
   address: yup.string().required("Este é um campo obrigatório"),
-  complement: yup.string().required("Este é um campo obrigatório"),
+  complement: yup.string(),
   neighborhood: yup.string().required("Este é um campo obrigatório"),
   city: yup.string().required("Este é um campo obrigatório"),
   state: yup.string().required("Este é um campo obrigatório"),
@@ -57,8 +57,8 @@ function FirstStep({ onSubmitWithSuccess }) {
       />
       <Input
         error={errors.complement}
-        {...register("complement", { required: true })}
-        label="Complemento*"
+        {...register("complement")}
+        label="Complemento"
       />
       <Input
         error={errors.neighborhood}
